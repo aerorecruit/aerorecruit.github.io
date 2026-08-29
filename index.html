@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한화에어로스페이스 | 2026년 항공사업부 산학장학생 채용</title>
+<meta name="description" content="대한민국 항공산업의 미래를 함께 만들어갈 인재를 찾습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="한화에어로스페이스 항공사업부">
+<meta property="og:title" content="한화에어로스페이스 | 2026년 항공사업부 산학장학생 채용">
+<meta property="og:description" content="대한민국 항공산업의 미래를 함께 만들어갈 인재를 찾습니다.">
+<meta property="og:image" content="https://hanwhaaerospace-aeroscholar.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://hanwhaaerospace-aeroscholar.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+/* ===== 한화 전용서체 ===== */
+@font-face{font-family:"HanwhaGothic";font-weight:300;font-style:normal;font-display:swap;
+  src:local("한화고딕 L"),local("hanwhaGothic23L"),url("./assets/fonts/HanwhaGothic-Light.woff2") format("woff2");}
+@font-face{font-family:"HanwhaGothic";font-weight:400;font-style:normal;font-display:swap;
+  src:local("한화고딕 R"),local("hanwhaGothic23R"),url("./assets/fonts/HanwhaGothic-Regular.woff2") format("woff2");}
+@font-face{font-family:"HanwhaGothic";font-weight:500;font-style:normal;font-display:swap;
+  src:local("한화고딕 R"),local("hanwhaGothic23R"),url("./assets/fonts/HanwhaGothic-Regular.woff2") format("woff2");}
+@font-face{font-family:"HanwhaGothic";font-weight:600;font-style:normal;font-display:swap;
+  src:local("한화고딕 B"),local("hanwhaGothic23B"),url("./assets/fonts/HanwhaGothic-Bold.woff2") format("woff2");}
+@font-face{font-family:"HanwhaGothic";font-weight:700;font-style:normal;font-display:swap;
+  src:local("한화고딕 B"),local("hanwhaGothic23B"),url("./assets/fonts/HanwhaGothic-Bold.woff2") format("woff2");}
+</style>
+<style>
+:root{
+  --orange:#F37321; --orange-h:#FF8A3D;
+  --ink:#0A0806; --ink-2:#0F0C0A; --ink-3:#15110E; --card:#1B1613;
+  --txt:#fff; --txt-2:#B9B4AF; --txt-3:#847D77;
+  --line:rgba(255,255,255,.13); --line-2:rgba(255,255,255,.28);
+  --maxw:1250px;
+  --sans:"HanwhaGothic","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--ink);color:var(--txt);
+  -webkit-font-smoothing:antialiased;line-height:1.7;letter-spacing:-.02em;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 30px}
+
+/* ===== HEADER ===== */
+.hd{position:absolute;top:0;left:0;right:0;z-index:40;padding-top:32px;transition:padding .3s}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:29px;width:auto}
+.logo .unit{font-size:17px;font-weight:500;color:#fff;white-space:nowrap;letter-spacing:-.03em}
+.logo .fb{display:none;font-size:19px;font-weight:700;color:#fff}
+.gnb{display:flex;align-items:center;gap:40px;font-size:16px;font-weight:600}
+.gnb a{color:#fff;transition:color .2s}
+.gnb a:not(.apply):hover{color:var(--orange)}
+.gnb .apply{border:1px solid #fff;padding:10px 22px;border-radius:4px;transition:.22s}
+.gnb .apply:hover{background:var(--orange);border-color:var(--orange)}
+.hd.stuck{position:fixed;background:rgba(10,8,6,.92);backdrop-filter:blur(14px);
+  padding:15px 0;border-bottom:1px solid var(--line);animation:drop .35s ease}
+@keyframes drop{from{transform:translateY(-100%)}to{transform:none}}
+@media(max-width:1000px){.gnb a:not(.apply){display:none}.logo .unit{display:none}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#0A0806}
+/* 배경 항공기 : 카메라가 기체 쪽으로 천천히 접근하는 cinematic drift (좌우 왕복 아님) */
+.hero-img{position:absolute;inset:-2%;background-image:url('./assets/images/hero-jet.jpg');
+  background-size:cover;background-position:66% center;
+  will-change:transform;transform:scale(1.04) translate3d(0,0,0);
+  animation:heroDrift 16s cubic-bezier(.37,0,.63,1) infinite}
+@keyframes heroDrift{
+  0%   {transform:scale(1.04) translate3d(0,0,0)}
+  50%  {transform:scale(1.095) translate3d(-1.2%,-.8%,0)}
+  100% {transform:scale(1.04) translate3d(0,0,0)}
+}
+/* 엔진 glow : 아주 느린 breathing */
+.hero-glow{position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(ellipse 26% 30% at 62% 60%,rgba(243,115,33,.55),transparent 70%);
+  filter:blur(46px);opacity:.16;will-change:opacity,transform;
+  animation:glowBreath 7.5s ease-in-out infinite}
+@keyframes glowBreath{
+  0%,100%{opacity:.11;transform:scale(1)}
+  50%    {opacity:.24;transform:scale(1.06)}
+}
+/* 진행 방향을 암시하는 미세한 light streak (3줄, 매우 느리고 옅음) */
+.hero-streaks{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden;opacity:.5}
+.hero-streaks i{position:absolute;height:1px;width:16%;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,196,150,.5),transparent);
+  opacity:0;will-change:transform,opacity}
+.hero-streaks i:nth-child(1){top:34%;animation:streak 13s linear infinite}
+.hero-streaks i:nth-child(2){top:57%;width:11%;animation:streak 17s linear infinite 5s}
+.hero-streaks i:nth-child(3){top:72%;width:9%;animation:streak 21s linear infinite 10s}
+@keyframes streak{
+  0%  {transform:translateX(-20vw);opacity:0}
+  12% {opacity:.55}
+  78% {opacity:.35}
+  100%{transform:translateX(115vw);opacity:0}
+}
+.hero-mask{position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,#0A0806 4%,rgba(10,8,6,.94) 26%,rgba(10,8,6,.60) 48%,rgba(10,8,6,.12) 68%,rgba(10,8,6,.34) 100%),
+    linear-gradient(180deg,rgba(10,8,6,.86) 0%,transparent 26%,transparent 60%,rgba(10,8,6,.92) 100%),
+    radial-gradient(ellipse 40% 46% at 68% 56%,rgba(243,115,33,.26),transparent 68%)}
+.hero-stars{position:absolute;inset:0;pointer-events:none;opacity:.8;
+  background-image:
+    radial-gradient(1.5px 1.5px at 9% 16%,rgba(255,214,180,.7),transparent),
+    radial-gradient(1.2px 1.2px at 24% 58%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1.6px 1.6px at 41% 11%,rgba(255,196,150,.55),transparent),
+    radial-gradient(1.1px 1.1px at 17% 78%,rgba(255,255,255,.35),transparent),
+    radial-gradient(1.4px 1.4px at 33% 40%,rgba(255,214,180,.4),transparent),
+    radial-gradient(1.2px 1.2px at 6% 44%,rgba(255,255,255,.35),transparent)}
+.hero-in{position:relative;z-index:5;width:100%;padding:170px 0 130px;will-change:transform,opacity}
+.hero-copy{max-width:800px}
+/* 최초 진입 stagger : 전체 1.5초 내 완료 */
+.hero-copy > *{opacity:0;transform:translateY(20px);filter:blur(5px)}
+.hero-ready .hero-copy > *{animation:heroIn .72s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-ready .hero-copy > *:nth-child(1){animation-delay:.10s}
+.hero-ready .hero-copy > *:nth-child(2){animation-delay:.26s}
+.hero-ready .hero-copy > *:nth-child(3){animation-delay:.50s}
+.hero-ready .hero-copy > *:nth-child(4){animation-delay:.66s}
+@keyframes heroIn{to{opacity:1;transform:none;filter:blur(0)}}
+/* 오렌지 타이틀 : 등장 순간에만 아주 옅은 glow가 스쳤다 사라짐 */
+.hero-ready h1.tt .o{animation:oGlow 1.7s ease-out .30s both}
+@keyframes oGlow{
+  0%  {text-shadow:0 0 0 rgba(243,115,33,0)}
+  35% {text-shadow:0 0 26px rgba(243,115,33,.45)}
+  100%{text-shadow:0 0 0 rgba(243,115,33,0)}
+}
+.yr{font-size:clamp(24px,3.1vw,38px);font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.045em}
+h1.tt{font-size:clamp(32px,5.4vw,64px);font-weight:700;line-height:1.26;letter-spacing:-.05em;margin-bottom:32px}
+h1.tt .o{display:block;color:var(--orange)}
+h1.tt .w{display:block;color:#fff}
+.lede{font-size:clamp(16px,2vw,23px);line-height:1.62;color:#CFCAC5;margin-bottom:44px}
+.pill{display:inline-block;background:var(--orange);color:#fff;font-size:19px;font-weight:700;
+  padding:19px 54px;border-radius:999px;transition:.24s;box-shadow:0 10px 34px rgba(243,115,33,.36)}
+.pill:hover{background:var(--orange-h);transform:translateY(-3px);box-shadow:0 16px 46px rgba(243,115,33,.5)}
+.pill.lg{font-size:20px;padding:21px 64px}
+.scroll-cue{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);z-index:6;width:42px;height:24px;
+  animation:bob 2s ease-in-out infinite}
+.scroll-cue svg{width:100%;height:100%;stroke:rgba(255,255,255,.8);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+@media(max-width:1000px){
+  .hero{min-height:auto}
+  .hero-in{padding:150px 0 110px}
+  .hero-img{background-position:60% center}
+  .hero-mask{background:
+    linear-gradient(180deg,rgba(10,8,6,.92) 0%,rgba(10,8,6,.80) 46%,rgba(10,8,6,.55) 70%,rgba(10,8,6,.95) 100%),
+    radial-gradient(ellipse 60% 40% at 60% 70%,rgba(243,115,33,.24),transparent 70%)}
+}
+
+/* ===== 섹션 공통 ===== */
+section{padding:120px 0}
+.s1{background:var(--ink)}
+.s2{background:var(--ink-2)}
+.sh{text-align:center;margin-bottom:60px}
+.sh h2{font-size:clamp(26px,3.6vw,42px);font-weight:700;line-height:1.44;letter-spacing:-.05em;margin-bottom:18px}
+.sh h2 .o{color:var(--orange)}
+.sh p{font-size:17px;line-height:1.78;color:var(--txt-2)}
+
+/* 사업부 소개 : 사진 타일 */
+.intro{text-align:center;max-width:840px;margin:0 auto 56px;font-size:18px;line-height:1.95;color:var(--txt-2)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tile{position:relative;border-radius:10px;overflow:hidden;min-height:390px;display:flex;align-items:flex-end;
+  border:1px solid var(--line)}
+.tile .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s ease}
+.tile:hover .ph{transform:scale(1.07)}
+/* ── UAV 타일 : 배경(스텔스 무인기) + 전경(장기체공 UAV) 합성 ── */
+.tile.uav .ph{background-position:52% 46%}
+/* 밝은 하늘 분위기를 살리기 위해 상단은 맑게, 하단만 어둡게 (텍스트 가독성 유지) */
+.tile.uav::after{background:linear-gradient(180deg,
+  rgba(10,8,6,0) 0%,rgba(10,8,6,.06) 38%,rgba(10,8,6,.42) 64%,rgba(10,8,6,.92) 100%)}
+.tile.uav .haze{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 62% 52% at 22% 20%,rgba(214,226,238,.34),transparent 68%),
+    linear-gradient(180deg,rgba(120,140,160,.10) 0%,transparent 42%)}
+.tile.uav .fg{position:absolute;z-index:2;left:3%;top:5%;width:34%;height:auto;pointer-events:none;
+  filter:drop-shadow(0 10px 22px rgba(20,30,45,.42)) saturate(.86) blur(.25px);
+  opacity:.96;transform-origin:30% 40%;transition:transform .8s ease}
+.tile.uav:hover .fg{transform:scale(1.06) translate3d(1.6%,-1.4%,0)}
+@media(max-width:820px){
+  .tile.uav .ph{background-position:56% 44%}
+  .tile.uav .fg{left:2%;top:4%;width:40%}
+}
+@media(max-width:480px){
+  .tile.uav .fg{width:46%;left:1%;top:3%}
+}
+.tile::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,8,6,.15) 0%,rgba(10,8,6,.55) 48%,rgba(10,8,6,.94) 100%)}
+.tile .copy{position:relative;z-index:2;padding:38px 34px}
+.tile .copy strong{display:block;font-size:25px;font-weight:700;margin-bottom:10px;letter-spacing:-.04em}
+.tile .copy p{font-size:16px;line-height:1.8;color:#D6D1CC}
+@media(max-width:820px){.tiles{grid-template-columns:1fr}.tile{min-height:320px}}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px}
+.badges span{border:1px solid var(--line);border-radius:999px;padding:11px 21px;font-size:14.5px;
+  color:var(--txt-2);transition:.22s}
+.badges span:hover{border-color:rgba(243,115,33,.65);color:#fff}
+.badges b{color:var(--orange);font-weight:700}
+
+/* 모집 부문 : 탭 + 아코디언 */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:38px;flex-wrap:wrap}
+.tab{background:none;border:0;border-bottom:3px solid transparent;font-family:var(--sans);
+  color:var(--txt-3);font-size:20px;font-weight:700;padding:18px 34px;cursor:pointer;
+  transition:.22s;letter-spacing:-.04em;margin-bottom:-1px}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--orange)}
+@media(max-width:600px){.tab{font-size:17px;padding:15px 20px;flex:1}}
+.pane{display:none}
+.pane.on{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.jd-top{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;
+  background:rgba(255,255,255,.035);margin-bottom:20px;overflow:hidden}
+.jd-top div{padding:24px 32px;border-right:1px solid var(--line);flex:1;min-width:190px}
+.jd-top div:last-child{border-right:0}
+.jd-top dt{font-size:12px;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:9px}
+.jd-top dd{font-size:17px;font-weight:600}
+/* 아코디언 */
+.acc{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);margin-bottom:14px}
+.acc-h{width:100%;text-align:left;background:none;border:0;font-family:var(--sans);color:#fff;
+  font-size:19px;font-weight:700;padding:26px 60px 26px 30px;cursor:pointer;position:relative;
+  letter-spacing:-.04em;transition:.2s}
+.acc-h:hover{color:var(--orange)}
+.acc-h::after{content:"";position:absolute;right:30px;top:50%;width:13px;height:2px;
+  background:var(--orange);transform:translateY(-50%)}
+.acc-h::before{content:"";position:absolute;right:35px;top:50%;width:2px;height:13px;background:var(--orange);
+  transform:translateY(-50%);transition:transform .3s,opacity .3s}
+.acc-h[aria-expanded="true"]::before{transform:translateY(-50%) rotate(90deg);opacity:0}
+.acc-b{display:none;padding:4px 30px 30px}
+.acc-b.on{display:block;animation:fade .3s ease}
+.grp{margin-bottom:26px}
+.grp:last-child{margin-bottom:0}
+.grp h4{font-size:17px;font-weight:700;margin-bottom:12px;padding-left:16px;position:relative;color:#fff}
+.grp h4::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;background:var(--orange);border-radius:1px}
+.grp ul{list-style:none;padding-left:16px}
+.grp li{font-size:16px;color:var(--txt-2);line-height:1.9;padding-left:16px;position:relative}
+.grp li::before{content:"–";position:absolute;left:0;color:var(--txt-3)}
+.tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px;padding-left:16px}
+.tools span{font-size:14px;padding:9px 17px;border:1px solid var(--line);border-radius:999px;
+  color:var(--txt-2);transition:.22s}
+.tools span:hover{border-color:rgba(243,115,33,.65);color:#fff}
+
+/* 혜택 */
+.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ben{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035);
+  padding:38px 32px;transition:.26s}
+.ben:hover{border-color:rgba(243,115,33,.6);transform:translateY(-5px)}
+.ben .n{font-size:12.5px;font-weight:700;color:var(--orange);letter-spacing:.13em;margin-bottom:16px}
+.ben h3{font-size:19px;font-weight:700;margin-bottom:11px;line-height:1.45;letter-spacing:-.04em}
+.ben p{font-size:15.5px;color:var(--txt-2);line-height:1.8}
+.ben .amt{display:block;font-size:15.5px;color:var(--orange);font-weight:700;margin-top:13px}
+@media(max-width:900px){.bens{grid-template-columns:1fr}}
+
+/* 응시자격 */
+.qual{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035);
+  padding:46px 42px;margin-bottom:60px}
+.qual > strong{display:block;font-size:21px;font-weight:700;margin-bottom:26px;text-align:center;letter-spacing:-.04em}
+.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.qgrid h4{font-size:16px;font-weight:700;color:var(--orange);margin-bottom:11px}
+.qgrid ul{list-style:none}
+.qgrid li{font-size:15.5px;color:var(--txt-2);line-height:1.85;padding-left:17px;position:relative}
+.qgrid li::before{content:"·";position:absolute;left:5px;color:var(--orange);font-weight:700}
+.qgrid .note{font-size:13.5px;color:var(--txt-3);line-height:1.72;margin-top:8px;padding-left:17px}
+@media(max-width:760px){.qgrid{grid-template-columns:1fr}}
+
+/* 전형절차 */
+.flow{display:flex;align-items:flex-start;justify-content:center;gap:6px;flex-wrap:wrap}
+.st{text-align:center;width:152px}
+.st .ico{width:106px;height:106px;margin:0 auto 16px;border-radius:50%;border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);transition:.3s}
+.st:hover .ico{border-color:var(--orange);background:rgba(243,115,33,.15);transform:translateY(-6px)}
+.st .ico svg{width:42px;height:42px;stroke:var(--orange);fill:none;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round}
+.st h4{font-size:16px;font-weight:700;margin-bottom:5px;letter-spacing:-.04em}
+.st p{font-size:14px;color:var(--txt-3)}
+.farw{align-self:center;margin-top:38px;color:var(--txt-3);font-size:24px}
+@media(max-width:900px){.farw{display:none}.st{width:44%}}
+.footnote{margin-top:44px;text-align:center;font-size:14px;color:var(--txt-3);line-height:1.95}
+
+.notes{margin-top:54px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);padding:34px 36px}
+.notes strong{display:block;font-size:16px;font-weight:700;margin-bottom:18px;color:var(--orange)}
+.notes ul{list-style:none}
+.notes li{font-size:15px;color:var(--txt-2);line-height:1.85;padding-left:18px;position:relative;margin-bottom:9px}
+.notes li::before{content:"·";position:absolute;left:5px;color:var(--orange);font-weight:700}
+
+/* FAQ */
+.faq{max-width:940px;margin:0 auto;border-top:1px solid var(--line)}
+.qa{border-bottom:1px solid var(--line)}
+.q{width:100%;text-align:left;background:none;border:0;font-family:var(--sans);font-size:18px;font-weight:600;
+  color:#fff;padding:28px 52px 28px 0;cursor:pointer;position:relative;line-height:1.6;
+  transition:.2s;letter-spacing:-.04em}
+.q:hover{color:var(--orange)}
+.q .qm{color:var(--orange);font-weight:700;margin-right:10px}
+.q::after{content:"";position:absolute;right:8px;top:36px;width:14px;height:2px;background:var(--orange)}
+.q::before{content:"";position:absolute;right:14px;top:30px;width:2px;height:14px;background:var(--orange);
+  transition:transform .3s,opacity .3s}
+.q[aria-expanded="true"]::before{transform:rotate(90deg);opacity:0}
+.a{display:none;padding:0 52px 30px 0;font-size:16px;line-height:1.92;color:var(--txt-2)}
+.a.on{display:block;animation:fade .3s ease}
+
+/* 하단 CTA */
+.cta{position:relative;overflow:hidden;text-align:center;padding:150px 0;background:#0A0806}
+.cta-img{position:absolute;inset:0;background-image:url('./assets/images/hero-jet.jpg');
+  background-size:cover;background-position:center 38%;opacity:.42}
+.cta-mask{position:absolute;inset:0;
+  background:linear-gradient(180deg,#0A0806 0%,rgba(10,8,6,.72) 40%,rgba(10,8,6,.86) 72%,#0A0806 100%),
+  radial-gradient(ellipse 60% 60% at 50% 108%,rgba(243,115,33,.3),transparent 66%)}
+.cta .wrap{position:relative;z-index:3}
+.cta h2{font-size:clamp(28px,4.2vw,48px);font-weight:700;line-height:1.4;letter-spacing:-.05em;margin-bottom:20px}
+.cta > .wrap > p{font-size:18px;color:#CFCAC5;line-height:1.8;margin-bottom:36px}
+.timer{font-size:19px;color:#fff;margin-bottom:34px;font-weight:500}
+.timer b{color:var(--orange);font-weight:700;font-size:24px;margin:0 3px}
+
+footer{background:#070504;border-top:1px solid var(--line);padding:44px 0;font-size:14px;color:var(--txt-3)}
+.foot-in{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+.foot-brand{display:flex;align-items:center;gap:18px}
+.foot-brand img{height:24px;width:auto;opacity:.85}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-img,.scroll-cue,.hero-glow{animation:none}
+  .hero-img{transform:scale(1.04)}
+  .hero-glow{opacity:.15}
+  .hero-streaks{display:none}
+  .hero-copy > *{opacity:1;transform:none;filter:none;animation:none !important}
+  .hero-ready h1.tt .o{animation:none}
+  .tile:hover .ph,.tile.uav:hover .fg,.ben:hover,.pill:hover,.st:hover .ico{transform:none}
+  .hero-in{transform:none !important;opacity:1 !important}
+}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="#top">
+      <img src="./assets/logo/hanwha-aerospace-white.svg" alt="한화에어로스페이스"
+           onerror="this.style.display='none';document.getElementById('lfb').style.display='block'">
+      <span class="fb" id="lfb">Hanwha Aerospace</span>
+      <span class="unit">ㅣ항공사업부</span>
+    </a>
+    <nav class="gnb">
+      <a href="#jobs">모집공고</a>
+      <a href="#process">전형 절차</a>
+      <a href="#faq">FAQ</a>
+      <a class="apply" href="https://www.hanwhain.com/apply/recruit/detail?rtSeq=19640" target="_blank" rel="noopener">지원하기</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-mask"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-streaks" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="yr">2026년</p>
+      <h1 class="tt">
+        <span class="o">한화에어로스페이스</span>
+        <span class="w">항공사업부 산학장학생 채용</span>
+      </h1>
+      <p class="lede">대한민국 항공산업의 미래를<br>함께 만들어갈 인재를 찾습니다.</p>
+      <a class="pill" href="https://www.hanwhain.com/apply/recruit/detail?rtSeq=19640" target="_blank" rel="noopener">지원하기</a>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#about" aria-label="아래로 이동">
+    <svg viewBox="0 0 42 24"><path d="M4 5l17 15L38 5"/></svg>
+  </a>
+</section>
+
+<!-- ===== 사업부 소개 ===== -->
+<section id="about" class="s2">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2><span class="o">한화에어로스페이스</span> 항공사업부</h2>
+    </div>
+    <p class="intro rv">민항기 및 군용 핵심 엔진 부품·모듈을 제작·수출하며,<br>
+      항공·해양 분야 가스터빈 엔진 및 기계 부품 사업을 영위하고 있습니다.<br>
+      최근 General Atomics와 무인기를 공동 개발하는 등<br>
+      전후방 산업 확장을 통해 글로벌 파트너로 도약하고자 합니다.</p>
+
+    <div class="tiles">
+      <div class="tile uav rv">
+        <!-- 배경 : 스텔스형 무인항공기 (파일 교체 시 이 경로 수정) -->
+        <div class="ph" style="background-image:url('./assets/images/uav-sky.jpg')"></div>
+        <div class="haze"></div>
+        <!-- 전경 : 장기체공 UAV (투명 PNG, 파일 교체 시 이 경로 수정) -->
+        <img class="fg" src="./assets/images/uav-fg.png" alt="" width="720" height="473" loading="lazy" decoding="async">
+        <div class="copy">
+          <strong>UAV / 무인항공기</strong>
+          <p>최첨단 무인항공기 개발로<br>미래 항공 기술을 선도합니다.</p>
+        </div>
+      </div>
+      <div class="tile rv">
+        <div class="ph" style="background-image:url('./assets/images/tile-engine.jpg')"></div>
+        <div class="copy">
+          <strong>항공엔진</strong>
+          <p>고성능 항공엔진 부품 제작 및<br>첨단 가스터빈 기술 개발을 수행합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="badges rv">
+      <span><b>3DP</b> 적층제조 기반 개발</span>
+      <span><b>HAMJ-300</b> 시제 엔진</span>
+      <span><b>국과연</b> 협력 독자 엔진 개발</span>
+      <span><b>General Atomics</b> 무인기 공동 개발</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 모집 부문 ===== -->
+<section id="jobs" class="s1">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2>항공사업부의 담대한 도전을 함께할<br><span class="o">the Great Challenger</span>를 찾습니다.</h2>
+      <p>직무를 선택하시면 상세 수행업무와 우대사항을 확인하실 수 있습니다.<br>
+        하나의 모집공고에서는 1개 직무만 지원이 가능합니다.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-p="p1">R&amp;D 기계/항공</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="p2">R&amp;D 재료/소재공학</button>
+    </div>
+
+    <!-- 기계/항공 -->
+    <div class="pane on" id="p1" role="tabpanel">
+      <dl class="jd-top rv">
+        <div><dt>직무 구분</dt><dd>R&amp;D_기계/항공</dd></div>
+        <div><dt>근무지</dt><dd>판교</dd></div>
+      </dl>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="true">수행 업무</button>
+        <div class="acc-b on">
+          <div class="grp"><h4>형상설계</h4>
+            <ul>
+              <li>가스터빈 엔진 구성품 형상설계 및 3D 모델링, 제작도면 작성</li>
+              <li>각 구성품 제작 지원 및 모듈 조립체의 조립·시험 지원</li>
+              <li>각 모듈 구성품의 요구기능 통합 설계 및 개발 지원</li>
+            </ul></div>
+          <div class="grp"><h4>연료 / 윤활 / 베어링 / 제어로직</h4>
+            <ul>
+              <li>가스터빈 연료·윤활 시스템 설계 및 구성품 개발</li>
+              <li>가스터빈용 기어박스 및 베어링 설계·개발</li>
+              <li>가스터빈 엔진 제어로직 설계, 제어 SW 개발 및 신뢰성 시험</li>
+            </ul></div>
+          <div class="grp"><h4>엔진시험 / 성능해석</h4>
+            <ul>
+              <li>가스터빈 엔진 Instrumentation 설계 및 수행, 개발·인증 시험 수행 및 데이터 분석</li>
+              <li>가스터빈 엔진 열역학적 사이클 구성 및 모델링</li>
+              <li>가스터빈 엔진 정상상태·비정상상태 성능해석</li>
+              <li>왕복엔진 핵심 보기류 성능해석 및 시험</li>
+            </ul></div>
+          <div class="grp"><h4>구조 / 공력 / 열유동 해석</h4>
+            <ul>
+              <li>가스터빈 엔진 회전부·정지부 구조안정성 및 수명 해석·평가</li>
+              <li>팬·압축기·터빈 공력설계 및 유동해석, 리그시험 수행 및 데이터 검증</li>
+              <li>가스터빈 이차유로·냉각 설계 및 해석, 연소해석 및 연소기 설계·시험평가</li>
+            </ul></div>
+        </div>
+      </div>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="false">우대 사항</button>
+        <div class="acc-b">
+          <div class="grp">
+            <ul style="padding-left:0">
+              <li>가스터빈 엔진 구성품 설계나 구조·열유체 해석 경험을 보유하신 분</li>
+              <li>기계부품 도면 해독 역량을 보유하신 분</li>
+              <li>가스터빈 엔진 설계 및 시험 경험을 보유하신 분</li>
+              <li>Data Acquisition 모듈 활용이 가능하고 센서·계측에 대한 이해도를 보유하신 분</li>
+              <li>성능해석 SW(GasTurb, NPSS 등) 활용 역량을 보유하신 분</li>
+            </ul></div>
+        </div>
+      </div>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="false">주요 활용 언어 / Tool</button>
+        <div class="acc-b">
+          <div class="grp"><h4>언어</h4>
+            <div class="tools"><span>Python</span><span>C</span></div></div>
+          <div class="grp"><h4>Tool</h4>
+            <div class="tools">
+              <span>Ansys</span><span>Fluent</span><span>CFX</span><span>GasTurb</span>
+              <span>NPSS</span><span>CATIA</span><span>AutoCAD</span><span>Matlab</span>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 재료/소재 -->
+    <div class="pane" id="p2" role="tabpanel">
+      <dl class="jd-top rv">
+        <div><dt>직무 구분</dt><dd>R&amp;D_재료/소재공학</dd></div>
+        <div><dt>근무지</dt><dd>판교</dd></div>
+      </dl>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="true">수행 업무</button>
+        <div class="acc-b on">
+          <div class="grp"><h4>소재설계</h4>
+            <ul>
+              <li>항공용 가스터빈 소재 개발</li>
+              <li>금속 용해 및 주단조 공정 연구, 복합재 수지 및 성형 연구</li>
+              <li>항공엔진 소재 Material Characterization 업무</li>
+            </ul></div>
+          <div class="grp"><h4>공정설계</h4>
+            <ul>
+              <li>항공엔진 가스터빈 특수공정 소재요구도 설계 및 공정 개발</li>
+              <li>항공우주 적층공정 설계 및 개발</li>
+            </ul></div>
+        </div>
+      </div>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="false">우대 사항</button>
+        <div class="acc-b">
+          <div class="grp"><h4>소재설계</h4>
+            <ul>
+              <li>초내열재료, 경량재료 등 항공우주 구조재료 관련 지식을 보유하신 분</li>
+              <li>금속 합금 조성별 금속학 거동 이론 및 해석 역량을 보유하신 분</li>
+              <li>재료 시험평가 절차 및 결과 분석 역량을 보유하신 분</li>
+            </ul></div>
+          <div class="grp"><h4>공정설계</h4>
+            <ul>
+              <li>가스터빈 특수공정 소재 요구도 설계 역량을 보유하신 분</li>
+              <li>금속 분말 및 적층 성형 설계 역량을 보유하신 분</li>
+              <li>금속 재료 기계적 특성 평가 및 분석 역량을 보유하신 분</li>
+            </ul></div>
+        </div>
+      </div>
+
+      <div class="acc rv">
+        <button class="acc-h" aria-expanded="false">주요 활용 Tool</button>
+        <div class="acc-b">
+          <div class="grp">
+            <div class="tools" style="padding-left:0"><span>Thermo-Calc</span><span>JMatPro</span><span>AutoCAD</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 선발 혜택 ===== -->
+<section id="benefits" class="s2">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2><span class="o">선발 혜택</span></h2>
+      <p>학위 과정에 집중하실 수 있도록 등록금과 생활을 지원하고,<br>졸업 후 진로까지 함께 준비합니다.</p>
+    </div>
+    <div class="bens">
+      <div class="ben rv"><p class="n">BENEFIT 01</p><h3>졸업 후 취업 보장</h3>
+        <p>석사·박사 과정 졸업 후 한화에어로스페이스 취업이 보장됩니다.</p></div>
+      <div class="ben rv"><p class="n">BENEFIT 02</p><h3>등록금 전액 지원</h3>
+        <p>석사·박사 과정 등록금을 전액 지원합니다.</p></div>
+      <div class="ben rv"><p class="n">BENEFIT 03</p><h3>생활지원금</h3>
+        <p>학위 과정 중 매월 생활지원금을 지급합니다.</p>
+        <span class="amt">석사 180만원 / 월 · 박사 250만원 / 월</span></div>
+      <div class="ben rv"><p class="n">BENEFIT 04</p><h3>연구비 지원</h3>
+        <p>연구 성과에 따라 논문 단위로 연구비를 지원합니다.</p>
+        <span class="amt">논문 당 250만원</span></div>
+      <div class="ben rv"><p class="n">BENEFIT 05</p><h3>글로벌 역량 강화</h3>
+        <p>어학 학습비, 해외 학술대회 참가비 등 글로벌 역량 강화를 지원합니다.</p></div>
+      <div class="ben rv"><p class="n">BENEFIT 06</p><h3>현직자 네트워킹</h3>
+        <p>항공사업부 현직 연구원과 교류할 수 있는 기회를 제공합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 응시 자격 및 전형 절차 ===== -->
+<section id="process" class="s1">
+  <div class="wrap">
+    <div class="sh rv"><h2>응시 자격 및 <span class="o">전형 절차</span></h2></div>
+
+    <div class="qual rv">
+      <strong>응시 자격</strong>
+      <div class="qgrid">
+        <div>
+          <h4>학사 일정</h4>
+          <ul>
+            <li>석사 : 1~3학기 재학생</li>
+            <li>박사(석박통합) : Coursework 수료 이후 2년 이내 재학생</li>
+          </ul>
+          <p class="note">※ Coursework 수료 기준 : 성적증명서 상 정규 교과목 학점 이수가 완료된 시점</p>
+        </div>
+        <div>
+          <h4>전공</h4>
+          <ul>
+            <li>기계 · 항공 유관 분야 전공자</li>
+            <li>재료 · 소재공학 유관 분야 전공자</li>
+          </ul>
+        </div>
+        <div>
+          <h4>어학</h4>
+          <ul><li>TOEIC Speaking 또는 OPIc 성적 보유자</li></ul>
+          <p class="note">※ 서류 접수 마감일 기준 유효 성적에 한하여 인정<br>
+            ※ 영미권 해외 대학 학위 취득(예정)자는 어학성적 제출 면제</p>
+        </div>
+        <div>
+          <h4>공통</h4>
+          <ul>
+            <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
+            <li>해외 여행에 결격 사유가 없으신 분</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow rv">
+      <div class="st">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div>
+        <h4>서류 접수</h4><p>09.01 ~ 09.13</p>
+      </div>
+      <span class="farw">›</span>
+      <div class="st">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></div>
+        <h4>1차 실무 PT면접</h4><p>9월</p>
+      </div>
+      <span class="farw">›</span>
+      <div class="st">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9.5" r="2.5"/><path d="M15 20a4.5 4.5 0 0 1 6.5-4"/></svg></div>
+        <h4>2차 임원면접</h4><p>10월</p>
+      </div>
+      <span class="farw">›</span>
+      <div class="st">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="m8 11 2 2 4-4"/></svg></div>
+        <h4>최종 선발</h4><p>10월</p>
+      </div>
+      <span class="farw">›</span>
+      <div class="st">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></div>
+        <h4>입사</h4><p>학위 취득 직후</p>
+      </div>
+    </div>
+
+    <p class="footnote rv">※ R&amp;D 직무의 1차 면접은 PT면접으로 진행됩니다.<br>
+      ※ 내부 상황에 따라 절차가 추가될 수 있습니다.<br>
+      ※ 최종합격 안내 전까지 채용이 보류 혹은 취소될 수 있습니다.</p>
+
+    <div class="notes rv">
+      <strong>기타 사항</strong>
+      <ul>
+        <li>지원서는 한화그룹 채용 사이트를 통해서만 접수하며, 이메일 및 오프라인을 통한 개별 접수는 받지 않습니다.</li>
+        <li>전형 단계별 결과는 한화그룹 채용 홈페이지(hanwhain.com)에서 확인하실 수 있습니다.</li>
+        <li>상세 일정 및 증빙서류 제출은 전형별 합격자에 한해 개별 공지될 예정입니다.</li>
+        <li>입사지원서에 기재한 내용이 사실과 다르거나 제출서류가 허위로 판명될 경우, 또는 관련 서류 미제출 시 채용이 취소될 수 있습니다.</li>
+        <li>당사는 방위산업 업체로 군사기밀보호법 및 방위사업법, 개인정보보호법 등 관계 법령에 따라 신원조회를 진행하며, 신원조회 결과가 부적격인 경우 채용이 취소될 수 있습니다.</li>
+        <li>국가보훈 대상자 및 국가등록장애인은 관계 법령에 의거 우대합니다.</li>
+        <li>문의사항은 한화그룹 채용사이트 '1:1 문의하기'를 활용해 주시기 바랍니다.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="s2">
+  <div class="wrap">
+    <div class="sh rv">
+      <h2>FAQ</h2>
+      <p>한화에어로스페이스 항공사업부 산학장학생 채용에 대해<br>자주 묻는 질문과 답변을 미리 알아보세요</p>
+    </div>
+    <div class="faq rv">
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>산학장학생으로 선발되면 언제부터 근무하게 되나요?</button>
+        <div class="a">재학 중에는 학위 과정에 집중하시고, 학위 취득 직후 입사하게 됩니다.
+          재학 기간 동안에는 등록금과 생활지원금이 지원되며 현직자 네트워킹 기회가 제공됩니다.</div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>하나의 모집공고에서 여러 희망직무를 중복 지원할 수 있나요?</button>
+        <div class="a">하나의 모집공고에서는 오직 1개의 희망 직무만 지원이 가능합니다.
+          본인의 전공과 연구 분야에 가장 가까운 직무를 선택해 주십시오.</div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>지원서 제출은 온라인에서만 가능한가요?</button>
+        <div class="a">한화그룹의 채용은 우편 또는 방문 접수는 불가하며, 한화그룹 채용사이트인
+          한화인(www.hanwhain.com)에서 온라인으로만 접수가 가능합니다.</div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>어학 성적이 아직 없는데 지원할 수 있나요?</button>
+        <div class="a">TOEIC Speaking 또는 OPIc 성적 보유자를 대상으로 하며, 서류 접수 마감일 기준
+          유효한 성적만 인정됩니다. 다만 영미권 해외 대학 학위 취득(예정)자는 어학성적 제출이 면제됩니다.</div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>서류 및 면접 전형의 합격 여부는 어떻게 확인하나요?</button>
+        <div class="a">전형 단계별 합격 발표 진행 시 등록하신 메일 주소 또는 연락처로 안내가 나가며,
+          '한화인' 사이트 내에서도 확인하실 수 있습니다.</div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span class="qm">Q.</span>1차 면접은 어떤 방식으로 진행되나요?</button>
+        <div class="a">R&amp;D 직무의 1차 면접은 실무 PT면접으로 진행됩니다.
+          상세 안내는 서류 전형 합격자에 한해 개별 공지됩니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 하단 CTA ===== -->
+<section class="cta" id="apply">
+  <div class="cta-img"></div>
+  <div class="cta-mask"></div>
+  <div class="wrap">
+    <h2 class="rv">대한민국 항공산업의 미래,<br>함께 만들어가실 준비가 되셨나요?</h2>
+    <p class="rv">한화에어로스페이스 항공사업부에서<br>여러분의 도전을 기다립니다.</p>
+    <p class="timer rv" id="timer">접수 마감까지 <b>--</b>일 <b>--</b>시간 <b>--</b>분 <b>--</b>초 남았어요</p>
+    <a class="pill lg rv" href="https://www.hanwhain.com/apply/recruit/detail?rtSeq=19640" target="_blank" rel="noopener">지원하기</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span class="foot-brand">
+      <img src="./assets/logo/hanwha-aerospace-white.svg" alt="한화에어로스페이스" onerror="this.style.display='none'">
+      © 2026 Hanwha Aerospace. 항공사업부
+    </span>
+    <span>2026년 산학장학생 채용</span>
+  </div>
+</footer>
+
+<script>
+var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// 히어로 텍스트 stagger 진입
+document.documentElement.classList.add('hero-ready');
+
+// 헤더 고정 + 히어로 패럴랙스 (rAF로 1프레임당 1회만 계산)
+(function(){
+  var hd=document.getElementById('hd'),
+      heroImg=document.getElementById('heroImg'),
+      heroIn=document.querySelector('.hero-in'),
+      ticking=false, y=0;
+  var mobile=window.matchMedia('(max-width:1000px)').matches;
+
+  function frame(){
+    if(y>140) hd.classList.add('stuck'); else hd.classList.remove('stuck');
+    if(!REDUCED && !mobile && y<900){
+      heroIn.style.transform='translate3d(0,'+(y*-0.12)+'px,0)';
+      heroIn.style.opacity=Math.max(0,1-y/620);
+      heroImg.style.marginTop=(y*0.06)+'px';
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    y=window.scrollY;
+    if(!ticking){ ticking=true; requestAnimationFrame(frame); }
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    mobile=window.matchMedia('(max-width:1000px)').matches;
+    if(mobile){ heroIn.style.transform=''; heroIn.style.opacity=''; heroImg.style.marginTop=''; }
+  },{passive:true});
+})();
+
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('on')});
+    t.setAttribute('aria-selected','true');
+    var pane=document.getElementById(t.dataset.p);
+    pane.classList.add('on');
+    pane.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+  });
+});
+
+document.querySelectorAll('.acc-h').forEach(function(h){
+  h.addEventListener('click',function(){
+    var open=h.getAttribute('aria-expanded')==='true';
+    h.setAttribute('aria-expanded',String(!open));
+    h.nextElementSibling.classList.toggle('on',!open);
+  });
+});
+
+document.querySelectorAll('.q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var open=q.getAttribute('aria-expanded')==='true';
+    q.setAttribute('aria-expanded',String(!open));
+    q.nextElementSibling.classList.toggle('on',!open);
+  });
+});
+
+(function(){
+  var end=new Date('2026-09-13T23:59:59+09:00').getTime(), el=document.getElementById('timer');
+  function tick(){
+    var gap=end-Date.now();
+    if(gap<=0){ el.innerHTML='<b>접수가 마감되었습니다</b>'; return; }
+    var d=Math.floor(gap/86400000), h=Math.floor(gap%86400000/3600000),
+        m=Math.floor(gap%3600000/60000), s=Math.floor(gap%60000/1000);
+    el.innerHTML='접수 마감까지 <b>'+d+'</b>일 <b>'+h+'</b>시간 <b>'+m+'</b>분 <b>'+s+'</b>초 남았어요';
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+  });
+},{threshold:.14});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
