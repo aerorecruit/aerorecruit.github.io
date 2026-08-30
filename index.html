@@ -41,7 +41,8 @@
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{font-family:var(--sans);background:var(--ink);color:var(--txt);
-  -webkit-font-smoothing:antialiased;line-height:1.7;letter-spacing:-.02em;overflow-x:hidden}
+  -webkit-font-smoothing:antialiased;line-height:1.7;letter-spacing:-.02em;overflow-x:hidden;
+  word-break:keep-all;overflow-wrap:break-word}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 30px}
@@ -142,13 +143,38 @@ h1.tt .w{display:block;color:#fff}
 .scroll-cue svg{width:100%;height:100%;stroke:rgba(255,255,255,.8);fill:none;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
-@media(max-width:1000px){
+@media(min-width:901px) and (max-width:1000px){
   .hero{min-height:auto}
   .hero-in{padding:150px 0 110px}
   .hero-img{background-position:60% center}
   .hero-mask{background:
     linear-gradient(180deg,rgba(10,8,6,.92) 0%,rgba(10,8,6,.80) 46%,rgba(10,8,6,.55) 70%,rgba(10,8,6,.95) 100%),
     radial-gradient(ellipse 60% 40% at 60% 70%,rgba(243,115,33,.24),transparent 70%)}
+}
+/* ── 모바일(<=820px) : 히어로 배경을 '상단 밴드'로 고정 ──────────────────
+   hero-jet.jpg 는 2400x931(2.58:1). 세로로 긴 모바일 화면에서 cover 를 쓰면
+   폭을 채우려 이미지가 4배 이상 확대되어 기체 꼬리만 보이게 된다.
+   밴드 높이를 화면 폭에 비례(62vw)시키면 확대율이 고정되어
+   기체 전체가 어떤 기기에서도 프레임 안에 들어온다. PC에는 영향 없음. */
+@media(max-width:900px){
+  .hero{min-height:auto;display:block}
+  .hero-img{
+    top:0;left:0;right:0;bottom:auto;
+    height:calc(76px + 62vw);
+    background-position:50% center;
+    transform:none;animation:none}
+  .hero-mask{
+    top:0;left:0;right:0;bottom:auto;
+    height:calc(76px + 62vw);
+    background:linear-gradient(180deg,
+      rgba(10,8,6,.74) 0%,rgba(10,8,6,.20) 24%,rgba(10,8,6,.10) 52%,
+      rgba(10,8,6,.70) 84%,#0A0806 100%)}
+  .hero-glow,.hero-stars,.hero-streaks,.scroll-cue{display:none}
+  .hero-in{padding:calc(76px + 62vw - 26px) 0 92px}
+  .hero-copy{max-width:none}
+  h1.tt{font-size:clamp(28px,7.4vw,40px);line-height:1.3;margin-bottom:26px}
+  .lede{margin-bottom:34px}
+  .pill{display:block;text-align:center;padding:18px 0}
 }
 
 /* ===== 섹션 공통 ===== */
@@ -306,6 +332,13 @@ section{padding:120px 0}
 .cta-mask{position:absolute;inset:0;
   background:linear-gradient(180deg,#0A0806 0%,rgba(10,8,6,.72) 40%,rgba(10,8,6,.86) 72%,#0A0806 100%),
   radial-gradient(ellipse 60% 60% at 50% 108%,rgba(243,115,33,.3),transparent 66%)}
+/* 하단 CTA : 모바일에서는 배경 항공기를 '질감'으로만 사용(과확대 방지) */
+@media(max-width:820px){
+  .cta{padding:104px 0}
+  .cta-img{background-position:50% 42%;opacity:.28}
+  .cta h2{font-size:clamp(24px,6.4vw,34px)}
+  .pill.lg{display:block;text-align:center;font-size:19px;padding:19px 0}
+}
 .cta .wrap{position:relative;z-index:3}
 .cta h2{font-size:clamp(28px,4.2vw,48px);font-weight:700;line-height:1.4;letter-spacing:-.05em;margin-bottom:20px}
 .cta > .wrap > p{font-size:18px;color:#CFCAC5;line-height:1.8;margin-bottom:36px}
